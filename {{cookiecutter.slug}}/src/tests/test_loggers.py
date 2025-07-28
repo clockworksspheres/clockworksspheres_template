@@ -2,8 +2,8 @@
 """
 Testing logging functionality via CyLogger
 
-@author: Roy Nielsen
 """
+
 # --- Native python libraries
 import unittest
 import time

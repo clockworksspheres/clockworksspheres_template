@@ -12,6 +12,3 @@ class _Singleton(type):
 
 class Singleton(_Singleton('SingletonMeta', (object,), {})): pass
 
-#####
-# class Logger(Singleton):
-#    pass

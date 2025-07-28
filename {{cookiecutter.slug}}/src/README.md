@@ -6,7 +6,3 @@
 
 # References
 
-# Contributing
-
-# Authors
-
