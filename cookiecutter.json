@@ -1,0 +1,6 @@
+{
+	"project_name": "Test Project",
+	"slug": "{{ cookiecutter.project_name|lower|replace(' ','_')}}",
+	"refdocs": "",
+        "howtodocs": ""
+}
