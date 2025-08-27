@@ -23,14 +23,6 @@ if sys.platform.startswith('win32'):
 else:
     import pwd
 
-if sys.platform.startswith('win32'):
-    import win32api
-    from {{cookiecutter.slug}}.lib.windows_utilities import is_windows_process_elevated
-
-else:
-    import pwd
-
-
 try:
     from {{cookiecutter.slug}}.lib.localize import VERSION
 except ImportError or AssertionError:
@@ -70,7 +62,6 @@ class Environment(object):
     """
     The Environment class collects commonly used information about the
     execution platform and makes it available to the rules.
-    :version: 1.0
     """
 
     def __init__(self):
@@ -436,7 +427,7 @@ class Environment(object):
                     index = index + 1
             self.osversion = osver
 
-        # Breen Malmberg added support for os-release file
+        # added support for os-release file
         # method of getting version information
         elif os.path.isfile('/etc/os-release'):
             with open('/etc/os-release', 'r') as relfile:
@@ -455,7 +446,7 @@ class Environment(object):
         elif os.path.exists('/usr/bin/sw_vers'):
             self.rw.setCommand(["/usr/bin/sw_vers", "-productName"])
             output, _, _ = self.rw.communicate()
-            print("Product Name: " + str(output))
+            # print("Product Name: " + str(output))
             description = output
             description = description.strip()
 
@@ -625,8 +616,6 @@ class Environment(object):
 
         @return: string - ipaddress
         
-        @change: 2017/9/20 - bgonz12 - Changed implementation to not branch
-                    conditionally by OS, but to branch by file system searches.
         """
         if sys.platform.startswith('darwin'):
             ipaddr = ''
@@ -721,8 +710,6 @@ class Environment(object):
 
         @return: list of strings
         
-        @change: 2017/9/22 - bgonz12 - Changed implementation to use the ip
-                    command before trying to use the ifconfig command.
         """
         iplist = []
         cmd = ''
@@ -982,6 +969,7 @@ class Environment(object):
         Returns a bool indicating whether or not the little snitch program is
         active. Little snitch is a firewall utility used on Mac systems and can
         interfere with STONIX operations.
+        
         @return: bool - true if little snitch is running
         """
         issnitchactive = False

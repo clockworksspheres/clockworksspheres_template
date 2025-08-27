@@ -6,6 +6,9 @@ Inspiration for some of the below found on the internet.
 
 """
 
+# TODO: BUG - Class needs to return either byte streams or strings.  Check return, error and retcode values to see if they are strings, byte streams or int and treat accordingly
+# TODO: FEATURE - Possibly have a bool to set or not determining if the class will return byte streams or strings
+
 import os
 import re
 import sys

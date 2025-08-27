@@ -32,8 +32,8 @@ import logging.handlers
 sys.path.append("../..")
 # from {{cookiecutter.slug}}.lib.singleton import Singleton
 # from {{cookiecutter.slug}}.config import DEFAULT_LOG_LEVEL
-from . singleton import Singleton
-from .. config import DEFAULT_LOG_LEVEL
+from {{cookiecutter.slug}}.config import DEFAULT_LOG_LEVEL
+from {{cookiecutter.slug}}.lib.singleton import Singleton
 
 #from logging.handlers import RotatingFileHandler
 ###############################################################################
@@ -83,6 +83,8 @@ def singleton_decorator(cls):
 
 
 class SingletonCyLogger(type):
+    """
+    """
     _instances = {}
     def __call__(cls, *args, **kwargs):
         if cls not in cls._instances:
@@ -252,7 +254,6 @@ class CyLogger(Singleton):
         @NOTE: This only sets up the root logger.
 
         @note: Interface borrowed from Stonix's LogDispatcher.initializeLogs
-
         
         """
         self.initialized = True

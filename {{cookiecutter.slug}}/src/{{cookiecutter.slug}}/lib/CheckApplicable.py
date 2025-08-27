@@ -39,7 +39,6 @@ class CheckApplicable(object):
         Validate that the applicable dictionary has valid keys and valid value
         types.
 
-        
         """
         success = False
         if isinstance(applicable, dict):
@@ -145,10 +144,6 @@ class CheckApplicable(object):
 
         @return bool :
         
-        @change: 2015/04/13 added this method to template class
-        @change: 2017/03/18 rsn adding fisma check as well as vaildating both
-                                self.applicable and passed in applicableDict.
-        @change: 2023/01/08 rsn adding changes to macOS version applicable specification
         """
         applies = False
 
