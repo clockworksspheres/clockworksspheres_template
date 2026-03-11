@@ -10,19 +10,19 @@ import sys
 import unittest
 import traceback
 import tracemalloc
+from pathlib import Path
 
-#####
-# Include the parent project directory in the PYTHONPATH
-appendDir = "/".join(os.path.abspath(os.path.dirname(__file__)).split('/')[:-1])
-appendDir = ("../")
-sys.path.append(appendDir)
+# Get the parent directory of the current file's parent directory
+#  and add it to sys.path
+parent_dir = Path(__file__).parent.parent
+sys.path.append(str(parent_dir))
 
 # --- Non-native python libraries in this source tree
-import {{cookiecutter.slug}}.lib.environment as environment
+import lib.environment as environment
 
 if sys.platform.startswith('win32'):
     import win32api
-    from {{cookiecutter.slug}}.lib.windows_utilities import is_windows_process_elevated
+    from lib.windows_utilities import is_windows_process_elevated
 
 else:
     import pwd

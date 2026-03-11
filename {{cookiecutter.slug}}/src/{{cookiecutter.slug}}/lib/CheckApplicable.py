@@ -4,15 +4,20 @@
 import re
 import sys
 import traceback
+from pathlib import Path
+
+# Get the parent directory of the current file's parent directory
+#  and add it to sys.path
+parent_dir = Path(__file__).parent.parent
+sys.path.append(str(parent_dir))
+
 try:
     from distutils.version import LooseVersion
 except ModuleNotFoundError as err:
     from packaging.version import parse as LooseVersion
 
-sys.path.append("../../")
-
 #--- non-native python libraries in this source tree
-from {{cookiecutter.slug}}.lib.loggers import LogPriority
+from lib.loggers import LogPriority
 
 
 class CheckApplicable(object):

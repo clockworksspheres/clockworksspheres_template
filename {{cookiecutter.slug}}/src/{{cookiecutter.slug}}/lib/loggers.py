@@ -24,16 +24,15 @@ import datetime
 import traceback
 import logging
 import logging.handlers
-#####
-# Include the parent project directory in the PYTHONPATH - next three lines no good on Windows..
-# appendDir = "/".join(os.path.abspath(os.path.dirname(__file__)).split('/')[:-2])
-# sys.path.append(appendDir)
-# sys.path.append("/".join(os.path.abspath(os.path.dirname(__file__)).split('/')[:-2]))
-sys.path.append("../..")
-# from {{cookiecutter.slug}}.lib.singleton import Singleton
-# from {{cookiecutter.slug}}.config import DEFAULT_LOG_LEVEL
-from {{cookiecutter.slug}}.config import DEFAULT_LOG_LEVEL
-from {{cookiecutter.slug}}.lib.singleton import Singleton
+from pathlib import Path
+
+# Get the parent directory of the current file's parent directory
+#  and add it to sys.path
+parent_dir = Path(__file__).parent.parent
+sys.path.append(str(parent_dir))
+
+from lib.config import DEFAULT_LOG_LEVEL
+from lib.singleton import Singleton
 
 #from logging.handlers import RotatingFileHandler
 ###############################################################################
