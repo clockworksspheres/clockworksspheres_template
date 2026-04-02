@@ -12,14 +12,6 @@ Inspiration for some of the below found on the internet.
 import os
 import re
 import sys
-
-sys.path.append("../..")
-
-from {{cookiecutter.slug}}.lib.libHelperExceptions import NotValidForThisOS
-
-if not sys.platform.startswith("linux"):
-    raise NotValidForThisOS("Not Valid For This OS...")
-
 import pty
 import time
 import types
@@ -31,12 +23,9 @@ import traceback
 from subprocess import Popen, PIPE
 from subprocess import SubprocessError as SubprocessError
 
-sys.path.append("../..")
-
-from ramdisk.lib.loggers import CyLogger
-from ramdisk.lib.loggers import LogPriority as lp
-from ramdisk.lib.loggers import MockLogger
-from ramdisk.lib.getLibc.linuxGetLibc import getLibc
+from {{cookiecutter.slug}}.lib.loggers import CyLogger
+from {{cookiecutter.slug}}.lib.loggers import LogPriority as lp
+from {{cookiecutter.slug}}.lib.loggers import MockLogger
 
 
 class OSNotValidForRunWith(BaseException):

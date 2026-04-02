@@ -1,15 +1,6 @@
 """
 A module for logging to different facilities...
 
-Python logging references:
-https://docs.python.org/2/library/logging.html
-https://docs.python.org/2/library/logging.handlers.html
-https://docs.python.org/2/library/logging.config.html
-https://docs.python.org/2/howto/logging.html
-https://docs.python.org/2/howto/logging-cookbook.html
-https://docs.python.org/2/library/hotshot.html
-https://docs.python.org/2/library/multiprocessing.html?highlight=logging#logging
-
 """
 
 # TODO: Check values to be logged to see whether they are strings or byte streams and treat accordingly
@@ -28,11 +19,11 @@ from pathlib import Path
 
 # Get the parent directory of the current file's parent directory
 #  and add it to sys.path
-parent_dir = Path(__file__).parent.parent
-sys.path.append(str(parent_dir))
+#parent_dir = Path(__file__).parent.parent
+#sys.path.append(str(parent_dir))
 
-from lib.config import DEFAULT_LOG_LEVEL
-from lib.singleton import Singleton
+from {{cookiecutter.slug}}.lib.config import DEFAULT_LOG_LEVEL
+from {{cookiecutter.slug}}.lib.singleton import Singleton
 
 #from logging.handlers import RotatingFileHandler
 ###############################################################################

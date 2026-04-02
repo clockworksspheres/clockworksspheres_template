@@ -10,20 +10,14 @@ import platform
 import unittest
 import traceback
 import tracemalloc
-from pathlib import Path
-
-# Get the parent directory of the current file's parent directory
-#  and add it to sys.path
-parent_dir = Path(__file__).parent.parent
-sys.path.append(str(parent_dir))
 
 # --- Non-native python libraries in this source tree
-import lib.environment as environment
-from lib import config
+import {{cookiecutter.slug}}.lib.environment as environment
+from {{cookiecutter.slug}}.lib import config
 
 if sys.platform.startswith('win32'):
     import win32api
-    from lib.windows_utilities import is_windows_process_elevated
+    from {{cookiecutter.slug}}.lib.windows_utilities import is_windows_process_elevated
 
 else:
     import pwd
@@ -41,7 +35,7 @@ class test_environment(unittest.TestCase):
     def testGetostype(self):
         tracemalloc.start(10)
         validtypes = 'Red Hat Enterprise Linux|AlmaLinux|Rocky Linux|Debian|Ubuntu|CentOS|Fedora|' + \
-                     'openSUSE|Mac OS X|macOS|Windows'
+                     'openSUSE|Mac OS X|macOS|Windows|macOS'
         print('OS Type: ' + str(self.to.getostype()))
         self.assertTrue(re.search(validtypes, self.to.getostype()))
 

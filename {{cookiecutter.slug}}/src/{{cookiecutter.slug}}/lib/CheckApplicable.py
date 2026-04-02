@@ -4,20 +4,18 @@
 import re
 import sys
 import traceback
+
+from packaging.version import parse as LooseVersion
+'''
 from pathlib import Path
 
 # Get the parent directory of the current file's parent directory
 #  and add it to sys.path
 parent_dir = Path(__file__).parent.parent
 sys.path.append(str(parent_dir))
-
-try:
-    from distutils.version import LooseVersion
-except ModuleNotFoundError as err:
-    from packaging.version import parse as LooseVersion
-
+'''
 #--- non-native python libraries in this source tree
-from lib.loggers import LogPriority
+from {{cookiecutter.slug}}.lib.loggers import LogPriority
 
 
 class CheckApplicable(object):
@@ -82,8 +80,8 @@ class CheckApplicable(object):
     def isApplicable(self, applicableDict={'default': 'default'}):
         """
         This method returns true if the rule applies to the platform on which
-        stonix is currently running. The method in this template class will
-        return true by default. The class property applicable will be
+        this project is currently running. The method in this template class
+        will return true by default. The class property applicable will be
         referenced when this method is called and should be set by classes
         inheriting from the rule class including sub-template rules and
         concrete rule implementations.
@@ -141,7 +139,7 @@ class CheckApplicable(object):
         will mask the behavior of the more specific os key.
 
         Note that version comparison is done using the distutils.version
-        module. If the stonix environment module returns a 3 place version
+        module. If the project environment module returns a 3 place version
         string then you need to provide a 3 place version string. I.E. in this
         case 10.11 only matches 10.11.0 and does not match 10.11.3 or 10.11.5.
 

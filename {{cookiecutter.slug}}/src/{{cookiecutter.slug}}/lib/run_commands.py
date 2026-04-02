@@ -27,9 +27,9 @@ from pathlib import Path
 parent_dir = Path(__file__).parent.parent
 sys.path.append(str(parent_dir))
 
-from lib.loggers import CyLogger
-from lib.loggers import LogPriority as lp
-from lib.loggers import MockLogger
+from {{cookiecutter.slug}}.lib.loggers import CyLogger
+from {{cookiecutter.slug}}.lib.loggers import LogPriority as lp
+from {{cookiecutter.slug}}.lib.loggers import MockLogger
 
 
 class OSNotValidForRunWith(BaseException):

@@ -18,17 +18,17 @@ from pathlib import Path
 parent_dir = Path(__file__).parent.parent
 sys.path.append(str(parent_dir))
 
-from lib.config import DEFAULT_LOG_LEVEL, LogPriority
+from {{cookiecutter.slug}}.lib.config import DEFAULT_LOG_LEVEL, LogPriority
 
 if sys.platform.startswith('win32'):
     import win32api
-    from lib.windows_utilities import is_windows_process_elevated
+    from {{cookiecutter.slug}}.lib.windows_utilities import is_windows_process_elevated
 
 else:
     import pwd
 
 try:
-    from lib.localize import VERSION
+    from {{cookiecutter.slug}}.lib.localize import VERSION
 except ImportError or AssertionError:
     VERSION = '0.0.1'
 
@@ -37,7 +37,7 @@ except ImportError or AssertionError:
 FISMACAT = globals().get("FISMACAT", "low")
 
 try:
-    from lib.localize import FISMACAT
+    from {{cookiecutter.slug}}.lib.localize import FISMACAT
 except ImportError or AssertionError:
     FISMACAT = 'low'
 
@@ -60,7 +60,7 @@ else:
     DMI = False
 
 # third party libraries
-from lib.run_commands import RunWith as RunWith
+from {{cookiecutter.slug}}.lib.run_commands import RunWith as RunWith
 
 
 class Environment(object):
